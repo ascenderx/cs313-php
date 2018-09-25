@@ -22,4 +22,5 @@ btClickMe.addEventListener('click', function() {
 btChangeColor.addEventListener('click', function() {
    let color = txtColor.value;
    divsBlock[0].style.backgroundColor = color;
+   divsBlock[0].innerText = color;
 });
