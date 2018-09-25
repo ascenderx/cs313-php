@@ -1,0 +1,33 @@
+body {
+   font-family: 'Verdana', sans-serif;
+}
+
+.block {
+   display: inline-block;
+   width: 150px;
+   /* height: 150px; */
+   padding: 60px 0;
+   border-radius: 5px;
+   font-size: 20px;
+   text-align: center;
+   font-family: 'Consolas', monospace;
+}
+
+.block:hover, .block:focus {
+   font-weight: bold;
+}
+
+.red {
+   background-color: #f00;
+   color: #000;
+}
+
+.green {
+   background-color: #0f0;
+   color: #000;
+}
+
+.blue {
+   background-color: #00f;
+   color: #fff;
+}
