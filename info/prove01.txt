@@ -1,0 +1,28 @@
+After completing the assignment, please answer the questions in this text file and submit it to I-Learn.
+
+1. Copy and paste the URL for your Heroku web application:
+https://byui-cs313-downerj.herokuapp.com
+
+2. Copy and paste the URL for your GitHub source code repository:
+https://github.com/ascenderx/cs313-php
+
+3. Briefly list and describe the elements of the application that are functioning. Include any special instructions about how to login and/or use your application.
+The "Hello world" page displays with CSS-enabled text.
+
+4. Briefly describe any pieces of the assignment that are not yet working correctly.
+N/A
+
+5. Briefly describe the "coolest" thing you learned while completing this assignment.
+I can create my own developer server!
+
+6. Please select the category you feel best describes your assignment: [A-E]
+A - Some attempt was made
+B - Developing, but significantly deficient
+C - Slightly deficient, but still mostly adequate
+D - Meets requirements
+E - Shows creativity and excels above and beyond requirements
+I choose -> E
+
+7. Provide a brief justification (1-2 sentences) for selecting that category.
+I added my own JavaScript Snake arcade game from my own repo to my heroku hello world app
+
