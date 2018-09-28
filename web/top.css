@@ -112,6 +112,18 @@ body {
     font-size: 16px;
 }
 
+.containers {
+    width: 100%;
+}
+
+.left-container {
+    max-width: 10%;
+}
+
+.right-container {
+    max-width: 60%;
+}
+
 code, .code {
     font-family: "Anonymous Pro", monospace;
 }
@@ -120,13 +132,60 @@ code, .code {
     font-family: "Joystix Mono", monospace;
 }
 
+.u-container {
+    z-index: 0;
+    padding: 5px 20px 5px 20px;
+}
+
 .u-header, .u-content, .u-footer {
-    width: 95%;
+    max-width: 1000px;
     margin: 10px auto 20px auto;
     padding: 10px;
     background-color: #def;
     box-shadow: 0 5px #58c;
     border-radius: 5px;
+}
+
+.u-side-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 200px;
+    height: 100%;
+    background-color: #0af;
+    color: #fff;
+    padding: 10px;
+    visibility: hidden;
+}
+
+.u-side-bar-toggle {
+    z-index: 1;
+    background-color: #0df;
+    color: #000;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Joystix Mono', monospace;
+    border-radius: 0 0 5px 0;
+    box-shadow: 0 5px #09a;
+}
+
+#btToggleSideOn {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#btToggleSideOff {
+    position: fixed;
+    top: 0;
+    left: 220px;
+    visibility: hidden;
+}
+
+.u-side-bar-toggle:hover, .u-side-bar-toggle:focus {
+    background-color: #0ff;
+    cursor: pointer;
 }
 
 .u-heading-1, .u-heading-2, .u-heading-3, .u-heading-4 {
@@ -140,6 +199,10 @@ code, .code {
 
 .u-heading-2 {
     font-size: 26px;
+}
+
+.u-heading-3 {
+    font-size: 22px;
 }
 
 .u-centered {
@@ -178,4 +241,12 @@ code, .code {
 
 a {
     text-decoration: none;
+}
+
+hr {
+    border: 1px solid #000;
+}
+
+.dark-rule {
+    border: 1px solid #fff;
 }
