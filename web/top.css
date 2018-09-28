@@ -152,11 +152,13 @@ code, .code {
     left: 0;
     z-index: 2;
     width: 200px;
-    height: 100%;
+    height: 95%;
     background-color: #0af;
     color: #fff;
     padding: 10px;
     visibility: hidden;
+    box-shadow: 0 5px #048;
+    border-radius: 0 0 5px 0;
 }
 
 .u-side-bar-toggle {
@@ -224,13 +226,14 @@ code, .code {
 
 .u-button {
     display: inline-block;
-    margin: 5px;
     padding: 10px;
-    background-color: #09c;
+    margin: 5px 0 5px 0;
+    background-color: #07a;
     box-shadow: 0 5px #059;
     color: #fff;
     border-radius: 2px;
     font-family: "Anonymous Pro", monospace;
+    text-align: center;
 }
 
 .u-button:hover, .u-button:focus {
@@ -247,6 +250,20 @@ hr {
     border: 1px solid #000;
 }
 
-.dark-rule {
+.u-dark-rule {
     border: 1px solid #fff;
+}
+
+.u-button-normal {
+    width: 100px;
+}
+
+.u-button-fill {
+    width: 90%;
+}
+
+@media (max-width: 400px) {
+    .u-button {
+        width: 90%;
+    }
 }
