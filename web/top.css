@@ -104,24 +104,17 @@
  * CUSTOM STYLES
  *****************************************************************************/
 
+html, body {
+    height: 100%;
+}
+
 body {
     background-color: #000;
+    background-image: url("/assets/images/wallpaper2a.png");
     color: #022;
-    cursor: crosshair;
+    cursor: url('/assets/images/astercursor.png'), auto;
     font-family: "Trebuchet MS", "Geneva", sans-serif;
     font-size: 16px;
-}
-
-.containers {
-    width: 100%;
-}
-
-.left-container {
-    max-width: 10%;
-}
-
-.right-container {
-    max-width: 60%;
 }
 
 code, .code {
@@ -267,15 +260,39 @@ hr {
 }
 
 .u-button-container-large {
-    width: 350px;
+    width: 320px;
 }
 
-@media (max-width: 400px) {
-    .u-button-container, .u-button-container-normal, .u-button-container-large {
+.u-button-container-auto {
+    text-align: center;
+}
+
+.u-media-off {
+    display: inherit;
+}
+
+.u-media-on {
+    display: none;
+}
+
+@media screen and (max-width: 400px) {
+    .u-button-container-large {
         width: auto;
     }
 
     .u-button, .u-button-normal, .u-button-large {
         width: 90%;
+    }
+
+    .u-heading-1, .u-heading-2, .u-heading-3, .u-heading-4 {
+        text-align: center;   
+    }
+
+    .u-media-off {
+        display: none;
+    }
+
+    .u-media-on {
+        display: inherit;
     }
 }

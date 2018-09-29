@@ -9,22 +9,25 @@
         <?php include $MODULE_DIR . "/sidebar.php" ?>
         <div class="u-container">
             <?php include $MODULE_DIR . "/header.php" ?>
-            <div class="u-content">
-                <a href="index.php">
-                    <div class="u-button">Home</div>  
-                </a>
-                <a href="#">
-                    <div class="u-button">&gt; Assignments</div>  
-                </a>
+            <div class="u-content u-media-off">
+                <div class="u-button-container-auto u-centered">
+                    <a href="index.php">
+                        <div class="u-button">Home</div>  
+                    </a>
+                    <a href="#">
+                        <div class="u-button">&gt; Assignments</div>  
+                    </a>
+                </div>
             </div>
+
             <div class="u-content">
-                <div class="u-heading-2">Assignment List</div>
+                <div class="u-heading-2 u-center-text">Assignment List</div>
                 <hr />
                 <div class="u-button-container-large u-centered">
                     <a href="week01/hello.html">
                         <div class="u-button u-button-large">
                             Week 1 <hr class="u-dark-rule" /> Hello World
-                        </div>  
+                        </div>
                     </a>
                     <br />
                     <a href="week02/team02.html">
@@ -78,6 +81,15 @@
                     </a>
                     <br />
                 </div>
+            </div>
+
+            <div class="u-content u-media-on">
+                <a href="index.php">
+                    <div class="u-button">Home</div>  
+                </a>
+                <a href="#">
+                    <div class="u-button">&gt; Assignments</div>  
+                </a>
             </div>
         </div>
         
