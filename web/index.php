@@ -1,48 +1,15 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>Jimmy Downer</title>
-        <meta charset="UTF-8" />
-        <link rel="stylesheet" href="./top.css" />
-        <link rel="shortcut icon" type="image/png" href="./assets/images/php-512.png" />
-        
-        <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <title>Homepage</title>
+        <?php $MODULE_DIR = $_SERVER["DOCUMENT_ROOT"] . "/modules" ?>
+        <?php include $MODULE_DIR . "/metadata.php" ?>
     </head>
     <body>
-        <div class="u-side-bar-toggle" id="btToggleSideOn">
-            &gt;
-        </div>
-        <div class="u-side-bar-toggle" id="btToggleSideOff">
-            &lt;
-        </div>
-        <div class="u-side-bar">
-            <div class="u-heading-3">Navigation</div>
-            <hr class="u-dark-rule" />
-            <!-- <a href="#">
-                <div class="u-button">Home</div>
-            </a> -->
-            <a href="assign.php">
-                <div class="u-button u-button-fill">My Assignments</div>
-            </a>
-            <a href="https://ascenderx.github.io">
-                <div class="u-button u-button-fill">My Github.io</div>
-            </a>
-        </div>
+        <?php include $MODULE_DIR . "/sidebar.php" ?>
         <div class="u-container">
-            <div class="u-header">
-                <div class="u-heading-1">Jimmy Downer @ Heroku</div>
-            </div>
-            <!-- <div class="u-content">
-                <a href="#">
-                    <div class="u-button">Home</div>  
-                </a>
-            </div> -->
-            <div class="u-content">
-                <div class="u-heading-2">Your OS Info</div>
-                <hr />
-                <div class="code"><?php include "osinfo.php" ?></div>
-            </div>
+            <?php include $MODULE_DIR . "/header.php" ?>
+            <?php include $MODULE_DIR . "/osinfo.php" ?>
         </div>
         
         <script src="./top.js"></script>

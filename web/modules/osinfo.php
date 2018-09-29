@@ -1,3 +1,7 @@
+<div class="u-content">
+<div class="u-heading-2">Your OS Info</div>
+<hr />
+<div class="code">
 <!-- The following was taken from Funky Forty Niner at https://stackoverflow.com/questions/18070154/get-operating-system-info -->
 <?php
     $user_agent = $_SERVER['HTTP_USER_AGENT'];
@@ -70,3 +74,5 @@
     print_r($device_details);
     echo("<br /><br />".$_SERVER['HTTP_USER_AGENT']."");
 ?>
+</div>
+</div>

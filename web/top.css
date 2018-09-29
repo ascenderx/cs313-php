@@ -258,12 +258,24 @@ hr {
     width: 100px;
 }
 
+.u-button-large {
+    width: 300px;
+}
+
 .u-button-fill {
     width: 90%;
 }
 
+.u-button-container-large {
+    width: 350px;
+}
+
 @media (max-width: 400px) {
-    .u-button {
+    .u-button-container, .u-button-container-normal, .u-button-container-large {
+        width: auto;
+    }
+
+    .u-button, .u-button-normal, .u-button-large {
         width: 90%;
     }
 }
