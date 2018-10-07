@@ -2,14 +2,19 @@
 <html lang="en-US">
     <head>
         <title>Homepage</title>
-        <?php $MODULE_DIR = $_SERVER["DOCUMENT_ROOT"] . "/modules" ?>
-        <?php include $MODULE_DIR . "/metadata.php" ?>
+        <?php 
+            $ROOT = ".";
+            $MODULE_DIR = "$ROOT/modules";
+            require("$MODULE_DIR/metadata.php");
+        ?>
     </head>
     <body>
-        <?php include $MODULE_DIR . "/sidebar.php" ?>
+        <?php require("$MODULE_DIR/sidebar.php"); ?>
         <div class="u-container">
-            <?php include $MODULE_DIR . "/header.php" ?>
-            <?php include $MODULE_DIR . "/osinfo.php" ?>
+            <?php
+                require("$MODULE_DIR/header.php");
+                require("$MODULE_DIR/osinfo.php");
+            ?>
         </div>
         
         <script src="./top.js"></script>

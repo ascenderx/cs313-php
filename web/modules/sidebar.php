@@ -17,3 +17,5 @@
         <div class="u-button u-button-fill">My Github.io</div>
     </a>
 </div>
+
+<script src="/modules/sidebar.js"></script>
