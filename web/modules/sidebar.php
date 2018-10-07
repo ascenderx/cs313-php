@@ -1,9 +1,6 @@
-<div class="u-side-bar-toggle" id="btToggleSideOn">
-    &gt;
-</div>
-<div class="u-side-bar-toggle" id="btToggleSideOff">
-    &lt;
-</div>
+<link rel="stylesheet" href="/modules/sidebar.css" />
+<div class="u-side-bar-toggle" id="btToggleSideOn">&gt;</div>
+<div class="u-side-bar-toggle" id="btToggleSideOff">&lt;</div>
 <div class="u-side-bar">
     <div class="u-heading-3">Navigation</div>
     <hr class="u-dark-rule" />

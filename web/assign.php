@@ -14,7 +14,7 @@
             <?php require("$MODULE_DIR/header.php"); ?>
             <div class="u-content u-media-off">
                 <div class="u-button-container-auto u-centered">
-                    <a href="index.php">
+                    <a href="<?php echo($ROOT); ?>/index.php">
                         <div class="u-button">Home</div>  
                     </a>
                     <a href="#">

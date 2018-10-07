@@ -1,0 +1,43 @@
+.u-side-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 200px;
+    height: 95%;
+    background-color: #0af;
+    color: #fff;
+    padding: 10px;
+    visibility: hidden;
+    box-shadow: 0 5px #048;
+    border-radius: 0 0 5px 0;
+}
+
+.u-side-bar-toggle {
+    z-index: 1;
+    background-color: #0df;
+    color: #000;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Joystix Mono', monospace;
+    border-radius: 0 0 5px 0;
+    box-shadow: 0 5px #09a;
+}
+
+.u-side-bar-toggle:hover, .u-side-bar-toggle:focus {
+    background-color: #0ff;
+    cursor: pointer;
+}
+
+#btToggleSideOn {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#btToggleSideOff {
+    position: fixed;
+    top: 0;
+    left: 220px;
+    visibility: hidden;
+}

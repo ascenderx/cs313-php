@@ -130,6 +130,18 @@ code, .code {
     padding: 5px 20px 5px 20px;
 }
 
+.u-fill {
+    width: 100%;
+}
+
+.u-pull-left {
+    float: left;
+}
+
+.u-pull-right {
+    float: right;
+}
+
 .u-header, .u-content, .u-footer {
     max-width: 1000px;
     margin: 10px auto 20px auto;
@@ -137,50 +149,6 @@ code, .code {
     background-color: #def;
     box-shadow: 0 5px #58c;
     border-radius: 5px;
-}
-
-.u-side-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    width: 200px;
-    height: 95%;
-    background-color: #0af;
-    color: #fff;
-    padding: 10px;
-    visibility: hidden;
-    box-shadow: 0 5px #048;
-    border-radius: 0 0 5px 0;
-}
-
-.u-side-bar-toggle {
-    z-index: 1;
-    background-color: #0df;
-    color: #000;
-    text-align: center;
-    padding: 10px;
-    font-family: 'Joystix Mono', monospace;
-    border-radius: 0 0 5px 0;
-    box-shadow: 0 5px #09a;
-}
-
-#btToggleSideOn {
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-#btToggleSideOff {
-    position: fixed;
-    top: 0;
-    left: 220px;
-    visibility: hidden;
-}
-
-.u-side-bar-toggle:hover, .u-side-bar-toggle:focus {
-    background-color: #0ff;
-    cursor: pointer;
 }
 
 .u-heading-1, .u-heading-2, .u-heading-3, .u-heading-4 {
@@ -265,6 +233,19 @@ hr {
 
 .u-button-container-auto {
     text-align: center;
+}
+
+.u-input-text {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+    border-radius: 2px;
+    padding: 10px;
+    margin: 5px 0 5px 0;
+}
+
+.u-input-small {
+    width: 30px;
 }
 
 .u-media-off {
