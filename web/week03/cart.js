@@ -9,6 +9,10 @@ $(document).ready(() => {
         let $btn = $btnsItemRemove.get(index);
         
         $btn.addEventListener('click', () => {
+            let answer = confirm('Are you sure you want to remove this item?');
+            if (!answer) {
+                return;
+            }
             console.log('clicked');
             $txt.value = 0;
             $div.style.display = 'none';

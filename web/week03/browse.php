@@ -43,11 +43,11 @@
             </div>
             
             <div class="u-content u-media-off">
-                <form method="post" action="cart.php">
+                <form method="post">
                 <table class="u-fill">
                     <tr>
                     <td class="u-pull-left">
-                        <button id="btViewCart" type="submit" class="u-button">View Cart</button>
+                        <button id="btViewCart" type="submit" class="u-button" formaction="./cart.php">View Cart</button>
                     </td>
                     </tr>
                 </table>
