@@ -55,7 +55,7 @@
                                 <?php endif ?>
                             </div>
                         </a>
-                    <?php endforeach; ?>
+                    <?php $count++; endforeach; ?>
                 </div>
             </div>
 
