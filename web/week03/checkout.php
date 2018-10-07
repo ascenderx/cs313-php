@@ -57,7 +57,7 @@
             <div class="u-content u-media-off">
                 <div class="u-heading-3">Cart Amounts</div>
                 <hr />
-                <form method="post">
+                <form method="post" id="frm-main">
                     <table>
                     <tr>
                         <td><strong>Cart Subtotal</strong></td>
@@ -115,15 +115,19 @@
                     <tr>
                         <td>
                             <button 
-                                id="bt-checkout"
+                                id="bt-submit"
                                 type="submit"
                                 class="u-button"
                                 formaction="./confirm.php"
-                                disabled="true">Submit Payment</button>
+                                disabled="true">
+                                Submit Payment
+                            </button>
                         </td>
                     </table>
                 </form>
             </div>
         </div>
+        
+        <script src="checkout.js"></script>
     </body>
 </html>
