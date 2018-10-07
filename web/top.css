@@ -248,6 +248,13 @@ hr {
     width: 30px;
 }
 
+img.u-store-image {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #000;
+    border-radius: 4px;
+}
+
 .u-media-off {
     display: inherit;
 }

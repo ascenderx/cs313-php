@@ -3,12 +3,14 @@
         "sku": "0001",
         "name": "Doge",
         "description": "An original meme",
-        "price": 5.95
+        "price": 5.95,
+        "image": "doge.jpg"
     },
     {
         "sku": "0002",
         "name": "Pepe",
         "description": "A dank meme",
-        "price": 10.95
+        "price": 10.95,
+        "image": "pepe.png"
     }
 ]

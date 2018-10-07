@@ -36,6 +36,9 @@
                     <div>
                         <table class="u-fill">
                             <tr>
+                                <td rowspan="0">
+                                <img src="./assets/images/<?php echo($item->image); ?>" alt="meme" class="u-store-image" />
+                                </td>
                                 <td valign="top">SKU</td>
                                 <td valign="top"><?php echo($item->sku); ?></td>
                             </tr>
