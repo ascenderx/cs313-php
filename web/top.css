@@ -260,6 +260,10 @@ img.u-store-img {
     border-radius: 4px;
 }
 
+.u-no-show {
+    display: none;
+}
+
 .u-media-off {
     display: inherit;
 }

@@ -7,6 +7,7 @@
     
     session_start();
     
+    $_SESSION["store-items"] = $storeItems;
     foreach($storeItems as $item) {
         $sku = $item->sku;
         $item->count = $_SESSION["$sku-count"];
@@ -83,8 +84,8 @@
                                 </td>
                             </tr>
                         </table>
+                        <hr />
                     </div>
-                    <hr />
                 <?php endforeach; ?>
                 </form>
             </div>

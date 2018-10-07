@@ -5,8 +5,9 @@ $(document).ready(() => {
     
     $btnsItemInc.each((index) => {
         let $txt = $txtsItemCount.get(index);
+        let $btn = $btnsItemInc.get(index);
         
-        $btnsItemInc.get(index).addEventListener('click', (event) => {
+        $btn.addEventListener('click', () => {
             let count = parseInt($txt.value);
             if (isNaN(count)) {
                 count = 0;
@@ -17,8 +18,9 @@ $(document).ready(() => {
     
     $btnsItemDec.each((index) => {
         let $txt = $txtsItemCount.get(index);
+        let $btn = $btnsItemDec.get(index);
         
-        $btnsItemDec.get(index).addEventListener('click', (event) => {
+        $btn.addEventListener('click', () => {
             let count = parseInt($txt.value);
             if (isNaN(count)) {
                 count = 0;
