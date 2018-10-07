@@ -52,19 +52,6 @@
                 <form method="post">
                 <table class="u-fill">
                     <tr>
-                    <td valign="center" class="u-pull-left">
-                        <strong>Cart Subtotal:</strong>
-                        $<?php
-                            $subtotal = 0;
-                            foreach ($storeItems as $item) {
-                                $itemSubtotal = $item->count * $item->price;
-                                $subtotal += $itemSubtotal;
-                            }
-                            echo(sprintf("%.2f", $subtotal));
-                        ?>
-                    </td>
-                    </tr>
-                    <tr>
                     <td class="u-pull-left">
                         <button id="btCheckout" type="submit" class="u-button" formaction="./checkout.php">Checkout</button>
                     </td>

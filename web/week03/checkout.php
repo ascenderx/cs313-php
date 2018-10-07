@@ -15,6 +15,9 @@
         
         $item->count = $_SESSION["$sku-count"];
     }
+    
+    $tax = 8;
+    $taxf = $tax / 100.0;
 ?>
 
 <!DOCTYPE html>
@@ -52,12 +55,73 @@
             </div>
             
             <div class="u-content u-media-off">
+                <div class="u-heading-3">Cart Amounts</div>
+                <hr />
                 <form method="post">
-                <?php foreach($storeItems as $item): ?>
-                    <?php echo($item->sku); ?>
-                    <?php echo($item->count); ?>
-                    <br />
-                <?php endforeach; ?>
+                    <table>
+                    <tr>
+                        <td><strong>Cart Subtotal</strong></td>
+                        <td>$</td>
+                        <td class="u-right-text"><?php
+                            $subtotal = 0;
+                            foreach ($storeItems as $item) {
+                                $itemSubtotal = $item->count * $item->price;
+                                $subtotal += $itemSubtotal;
+                            }
+                            echo(sprintf("%.2f", $subtotal));
+                        ?></td>
+                    </tr>
+                    <tr>
+                        <td class="u-bottom-border"><strong>Tax @ <?php echo($tax); ?>%</strong></td>
+                        <td class="u-bottom-border">$</td>
+                        <td class="u-right-text u-bottom-border"><?php echo(sprintf("%.2f", $subtotal * $taxf)); ?></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td>$</td>
+                        <td class="u-right-text"><?php echo(sprintf("%.2f", $subtotal * (1 + $taxf))); ?></td>
+                    </tr>
+                    </table>
+                    <br /><br />
+                    
+                    <div class="u-heading-3">Shipping Address</div>
+                    <hr />
+                    <span class="u-warning">*</span> Required Field
+                    <table>
+                    <tr>
+                        <td>Address 1<span class="u-warning">*</span></td>
+                        <td><input type="text" class="u-input-text" name="addr-street" /></td>
+                    </tr>
+                    <tr>
+                        <td>Address 2</td>
+                        <td><input type="text" class="u-input-text" name="addr-2" /></td>
+                    </tr>
+                    <tr>
+                        <td>City<span class="u-warning">*</span></td>
+                        <td><input type="text" class="u-input-text" name="addr-city" /></td>
+                    </tr>
+                    <tr>
+                        <td>State / Province<span class="u-warning">*</span></td>
+                        <td><input type="text" class="u-input-text" name="addr-state" /></td>
+                    </tr>
+                    <tr>
+                        <td>Zip Code<span class="u-warning">*</span></td>
+                        <td><input type="text" class="u-input-text" name="addr-zip" /></td>
+                    </tr>
+                    <tr>
+                        <td>Country</td>
+                        <td><input type="text" class="u-input-text" name="addr-country" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button 
+                                id="bt-checkout"
+                                type="submit"
+                                class="u-button"
+                                formaction="./confirm.php"
+                                disabled="true">Submit Payment</button>
+                        </td>
+                    </table>
                 </form>
             </div>
         </div>
