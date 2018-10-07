@@ -1,0 +1,36 @@
+After completing the assignment, please answer the questions in this text file and submit it to I-Learn.
+
+1. Copy and paste the URL for your web application:
+https://byui-cs313-downerj.herokuapp.com/week03
+
+2. Copy and paste the URL for your source code repository (e.g., GitHub):
+https://github.com/ascenderx/cs313-php.git
+
+3. Briefly list and describe the elements of the application that are functioning. Include any special instructions about how to login and/or use your application.
+- Adding items to cart
+- Removing items from cart
+- Navigating via breadcrumbs and submit buttons
+- Totals calculation
+
+4. Briefly describe any pieces of the assignment that are not yet working correctly.
+- No regex validation for address fields
+
+5. Briefly describe the "coolest" thing you learned while completing this assignment.
+PHP is pretty awesome. I never realized it was so easy to throw data around between pages on a server.
+
+6. List one strength and one limitation of using cookies.
+Cookies are great because it allows the server to store temporary data on the client's computer for reuse.
+However, cookies allow for web tracking and pose privacy issues for the end user.
+
+7. Please select the category you feel best describes your assignment:
+A - Some attempt was made
+B - Developing, but significantly deficient
+C - Slightly deficient, but still mostly adequate
+D - Meets requirements
+E - Shows creativity and excels above and beyond requirements
+<E>
+
+8. Provide a brief justification (1-2 sentences) for selecting that category.
+I spent over 7 hours on this project, ensuring that the PHP was validated and functional and that the CSS was clean and compliant.
+I also added the ability to read the store item data from a JSON file.
+
