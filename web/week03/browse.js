@@ -1,11 +1,10 @@
 $(document).ready(() => {
-    let $btnsItemInc = $('#itemCountInc');
-    let $btnsItemDec = $('#itemCountDec');
-    let $txtsItemCount = $('#itemCount');
+    let $btnsItemInc = $('[ident="itemCountInc"]');
+    let $btnsItemDec = $('[ident="itemCountDec"]');
+    let $txtsItemCount = $('[ident="itemCount"]');
     
     $btnsItemInc.each((index) => {
         let $txt = $txtsItemCount.get(index);
-        $txt.value = 0;
         
         $btnsItemInc.get(index).addEventListener('click', (event) => {
             let count = parseInt($txt.value);
@@ -18,7 +17,6 @@ $(document).ready(() => {
     
     $btnsItemDec.each((index) => {
         let $txt = $txtsItemCount.get(index);
-        $txt.value = 0;
         
         $btnsItemDec.get(index).addEventListener('click', (event) => {
             let count = parseInt($txt.value);

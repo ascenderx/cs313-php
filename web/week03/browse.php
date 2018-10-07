@@ -9,9 +9,6 @@
     
     foreach($storeItems as $item) {
         $sku = $item->sku;
-        if (!isset($_SESSION["$sku-count"])) {
-            $_SESSION["$sku-count"] = 0;
-        }
         $item->count = $_SESSION["$sku-count"];
     }
 ?>
@@ -45,7 +42,7 @@
             </div>
             
             <div class="u-content u-media-off">
-                <form method="POST" action="cart.php">
+                <form method="post" action="cart.php">
                 <table class="u-fill">
                     <tr>
                     <td class="u-pull-left">
@@ -74,15 +71,15 @@
                             </tr>
                             <tr>
                                 <td>
-                                <button class="u-button" id="itemCountDec" type="button">&ndash;</button>
+                                <button class="u-button" ident="itemCountDec" type="button">&ndash;</button>
                                 <input
-                                    type="text"
-                                    id="itemCount"
-                                    name="sku-<?php echo($item-sku); ?>"
+                                    type="number"
+                                    ident="itemCount"
+                                    name="sku-<?php echo($item->sku); ?>"
                                     class="u-input-text u-input-small u-right-text"
                                     value="<?php echo($item->count); ?>"
                                     readonly />
-                                <button class="u-button" id="itemCountInc" type="button">+</button>
+                                <button class="u-button" ident="itemCountInc" type="button">+</button>
                                 </td>
                             </tr>
                         </table>

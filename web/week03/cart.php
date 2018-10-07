@@ -9,9 +9,8 @@
     
     foreach($storeItems as $item) {
         $sku = $item->sku;
-        if (!isset($_SESSION["$sku-count"])) {
-            $_SESSION["$sku-count"] = 0;
-        }
+        $count = htmlspecialchars($_POST["sku-$sku"]);
+        $_SESSION["$sku-count"] = $count;
         $item->count = $_SESSION["$sku-count"];
     }
 ?>
