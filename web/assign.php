@@ -27,7 +27,7 @@
                 $ASSIGNMENTS = array(
                     "01" => "Hello World",
                     "02" => "jQuery Test",
-                    "03" => "Shopping Cart",
+                    "03" => "Store",
                     "04" => null,
                     "05" => null,
                     "06" => null,

@@ -1,3 +1,21 @@
+<?php
+    $fileName = "./store.json";
+    $storeFile = fopen($fileName, "r") or die("Unable to read store.json");
+    $itemsJSON = fread($storeFile, filesize($fileName));
+    fclose($storeFile);
+    $storeItems = json_decode($itemsJSON);
+    
+    session_start();
+    
+    foreach($storeItems as $item) {
+        $sku = $item->sku;
+        if (!isset($_SESSION["$sku-count"])) {
+            $_SESSION["$sku-count"] = 0;
+        }
+        $item->count = $_SESSION["$sku-count"];
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
@@ -21,20 +39,21 @@
                         <button class="u-button">&gt; Assignments</button>
                     </a>
                     <a href="#">
-                        <button class="u-button">&gt; Shopping Cart</button>  
+                        <button class="u-button">&gt; Store</button>  
                     </a>
                 </div>
             </div>
             
-            <?php
-                $fileName = "./store.json";
-                $storeFile = fopen($fileName, "r") or die("Unable to read store.json");
-                $itemsJSON = fread($storeFile, filesize($fileName));
-                fclose($storeFile);
-                $storeItems = json_decode($itemsJSON);
-            ?>
-            
             <div class="u-content u-media-off">
+                <form method="POST" action="cart.php">
+                <table class="u-fill">
+                    <tr>
+                    <td class="u-pull-left">
+                        <button id="btViewCart" type="submit" class="u-button">View Cart</button>
+                    </td>
+                    </tr>
+                </table>
+                <hr />
                 <?php foreach ($storeItems as $item): ?>
                     <div>
                         <span class="u-heading-3"><?php echo($item->name); ?> Meme</span>
@@ -55,16 +74,22 @@
                             </tr>
                             <tr>
                                 <td>
-                                <button class="u-button" name="itemCountDec">&ndash;</button>
-                                <input type="text" name="itemCount" class="u-input-text u-input-small u-right-text" value="0" readonly />
-                                <button class="u-button" name="itemCountInc">+</button>
-                                <input class="u-button" type="submit" value="Add to cart" />
+                                <button class="u-button" id="itemCountDec" type="button">&ndash;</button>
+                                <input
+                                    type="text"
+                                    id="itemCount"
+                                    name="sku-<?php echo($item-sku); ?>"
+                                    class="u-input-text u-input-small u-right-text"
+                                    value="<?php echo($item->count); ?>"
+                                    readonly />
+                                <button class="u-button" id="itemCountInc" type="button">+</button>
                                 </td>
                             </tr>
                         </table>
                     </div>
                     <hr />
                 <?php endforeach; ?>
+                </form>
             </div>
         </div>
         

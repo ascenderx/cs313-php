@@ -1,7 +1,7 @@
 $(document).ready(() => {
-    let $btnsItemInc = $('[name="itemCountInc"]');
-    let $btnsItemDec = $('[name="itemCountDec"]');
-    let $txtsItemCount = $('[name="itemCount"]');
+    let $btnsItemInc = $('#itemCountInc');
+    let $btnsItemDec = $('#itemCountDec');
+    let $txtsItemCount = $('#itemCount');
     
     $btnsItemInc.each((index) => {
         let $txt = $txtsItemCount.get(index);
