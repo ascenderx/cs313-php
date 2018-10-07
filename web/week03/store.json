@@ -2,14 +2,14 @@
     {
         "sku": "0001",
         "name": "Doge",
-        "description": "An original meme",
+        "description": "A classic, this meme is known for its widespread use in the early days of the memenet.",
         "price": 5.95,
         "image": "doge.jpg"
     },
     {
         "sku": "0002",
         "name": "Pepe",
-        "description": "A dank meme",
+        "description": "One of the original \"dank memes\", this meme is best known by users of Reddit.",
         "price": 10.95,
         "image": "pepe.png"
     }

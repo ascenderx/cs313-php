@@ -15,10 +15,13 @@
             <div class="u-content u-media-off">
                 <div class="u-button-container-auto u-centered">
                     <a href="<?php echo($ROOT); ?>/index.php">
-                        <div class="u-button">Home</div>  
+                        <button class="u-button">Home</button>  
+                    </a>
+                    <a href="<?php echo($ROOT); ?>/assign.php">
+                        <button class="u-button">&gt; Assignments</button>
                     </a>
                     <a href="#">
-                        <div class="u-button">&gt; Shopping Cart</div>  
+                        <button class="u-button">&gt; Shopping Cart</button>  
                     </a>
                 </div>
             </div>
@@ -34,30 +37,28 @@
             <div class="u-content u-media-off">
                 <?php foreach ($storeItems as $item): ?>
                     <div>
+                        <span class="u-heading-3"><?php echo($item->name); ?> Meme</span>
                         <table class="u-fill">
                             <tr>
-                                <td rowspan="0">
-                                <img src="./assets/images/<?php echo($item->image); ?>" alt="meme" class="u-store-image" />
+                                <td rowspan="0" class="u-store-img-container">
+                                <img src="./assets/images/<?php echo($item->image); ?>" alt="meme" class="u-store-img" />
                                 </td>
-                                <td valign="top">SKU</td>
-                                <td valign="top"><?php echo($item->sku); ?></td>
                             </tr>
                             <tr>
-                                <td valign="top">Name</td>
-                                <td valign="top"><?php echo($item->name); ?></td>
-                            </tr>
-                            <tr>
-                                <td valign="top">Description</td>
                                 <td valign="top"><?php echo($item->description); ?></td>
                             </tr>
                             <tr>
-                                <td valign="top">Price</td>
+                                <td valign="top">SKU<?php echo($item->sku); ?></td>
+                            </tr>
+                            <tr>
                                 <td valign="top">$<?php echo($item->price); ?></td>
-                                <td class="u-pull-right">
-                                <div class="u-button" name="itemCountDec">&ndash;</div>
+                            </tr>
+                            <tr>
+                                <td>
+                                <button class="u-button" name="itemCountDec">&ndash;</button>
                                 <input type="text" name="itemCount" class="u-input-text u-input-small u-right-text" value="0" readonly />
-                                <div class="u-button" name="itemCountInc">+</div>
-                                <div class="u-button">Add to cart</div>
+                                <button class="u-button" name="itemCountInc">+</button>
+                                <input class="u-button" type="submit" value="Add to cart" />
                                 </td>
                             </tr>
                         </table>
