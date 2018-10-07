@@ -1,12 +1,15 @@
 <?php
     session_start();
     
+    $total = 0;
     $storeItems = $_SESSION["store-items"];
     foreach($storeItems as $item) {
         $sku = $item->sku;
+        $itemSubtotal = $item->count * $item->price;
+        $total += $itemSubtotal;
         
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $count = intval($_POST["sku-$sku"]);
+            $count = intval(htmlspecialchars($_POST["sku-$sku"]));
             if ($count < 0) {
                 $count = 0;
             }
@@ -18,6 +21,8 @@
     
     $tax = 8;
     $taxf = $tax / 100.0;
+    $total *= (1 + $taxf);
+    $_SESSION["total"] = $total;
 ?>
 
 <!DOCTYPE html>
@@ -72,14 +77,14 @@
                         ?></td>
                     </tr>
                     <tr>
-                        <td class="u-bottom-border"><strong>Tax @ <?php echo($tax); ?>%</strong></td>
+                        <td class="u-bottom-border"><strong>Tax @ <?php echo(sprintf("%.1f", $tax)); ?>%</strong></td>
                         <td class="u-bottom-border">$</td>
                         <td class="u-right-text u-bottom-border"><?php echo(sprintf("%.2f", $subtotal * $taxf)); ?></td>
                     </tr>
                     <tr>
                         <td><strong>Total</strong></td>
                         <td>$</td>
-                        <td class="u-right-text"><?php echo(sprintf("%.2f", $subtotal * (1 + $taxf))); ?></td>
+                        <td class="u-right-text"><?php echo(sprintf("%.2f", $total)); ?></td>
                     </tr>
                     </table>
                     <br /><br />

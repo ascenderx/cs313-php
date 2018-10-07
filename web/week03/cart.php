@@ -6,7 +6,7 @@
         $sku = $item->sku;
         
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $count = intval($_POST["sku-$sku"]);
+            $count = intval(htmlspecialchars($_POST["sku-$sku"]));
             if ($count < 0) {
                 $count = 0;
             }
