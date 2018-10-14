@@ -1,19 +1,24 @@
 After completing the assignment, please answer the questions in this text file and submit it to I-Learn.
 
 1. Provide a link to your myDb.sql file at GitHub (the file that contains all the SQL commands needed to create your database).
-
+https://github.com/user0x4A35/byui-cs313-downerj/blob/master/db/dbsetup.sql
 
 2. Describe something from your database that you think came together very nicely.
-
+The structure of the database was good enough, I feel, that running my SQL setup file went seamlessly.
+That being said, it did take me a first trial run to realize I needed to restructure my code to make the
+data *relational* (e.g. "A points to B" instead of "B contains multiple of A").
 
 3. Describe something from your database that you think could be improved or extended in the future.
-
+I will most likely need to add more description-style fields to each table.
 
 4. Briefly describe the "coolest" thing you learned while completing this assignment.
-
+I thought that the enumeration and inheritance capabilities were awesome because they allowed me to
+seamlessly implement the UML/OOP diagram that I created to structure my database.
 
 5. Briefly describe two principles of good database design.
-
+A. The data is modular — No one table tries to have too much data that would better be realized as its own table.
+B. The data is relational — There are consistent, defined relationships between data that should be
+grouped logically.
 
 6. Please select the category you feel best describes your assignment:
 A - Some attempt was made
@@ -21,8 +26,10 @@ B - Developing, but significantly deficient
 C - Slightly deficient, but still mostly adequate
 D - Meets requirements
 E - Shows creativity and excels above and beyond requirements
-
+<E>
 
 7. Provide a brief justification (1-2 sentences) for selecting that category.
-
-
+- I implemented inheritance from my Categories table to my Courses table.
+- I organized my database via OOP UML using draw.io.
+    -> The PDF file can be found at https://github.com/user0x4A35/byui-cs313-downerj/blob/master/web/week04/dbsetup-uml-drawio.pdf
+- I organized my SQL code and made the tabs and capitalization consistent for increased readability.
