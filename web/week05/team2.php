@@ -26,9 +26,11 @@
                 die();
             }
         ?>
-        <h1>Scripture Resources</h1>
-        <ul>
-        <?php foreach ($db->query("SELECT * FROM public.scriptures") as $row): ?>
+        <h1>Search Results</h1>
+        <?php
+            $book = htmlspecialchars($_POST["book"]);
+            foreach ($db->query("SELECT * FROM public.scriptures WHERE book=$book") as $row):
+        ?>
             <li>
                 <strong>
                     <?php echo($row["book"]); ?>
@@ -38,17 +40,5 @@
                 &ldquo;<?php echo($row["content"]); ?>&rdquo;
             </li>
         <?php endforeach; ?>
-        </ul>
-        <hr />
-        <!--
-            ################################################################################################################
-            # LOOK AT THIS
-            ################################################################################################################
-        --> 
-        <form method="POST">
-            Book name: <input type="text" name="book" />
-            <br />
-            <input type="submit" value="Query" formaction="team2.php" />
-        </form>
     </body>
 </html>
