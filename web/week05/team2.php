@@ -29,7 +29,7 @@
         <h1>Search Results</h1>
         <?php
             $book = htmlspecialchars($_POST["book"]);
-            foreach ($db->query("SELECT * FROM public.scriptures WHERE book=$book") as $row):
+            foreach ($db->query("SELECT * FROM public.scriptures WHERE book='$book'") as $row):
         ?>
             <li>
                 <strong>
