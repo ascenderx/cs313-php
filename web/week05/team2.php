@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
@@ -34,7 +31,6 @@
         <?php
             $book = htmlspecialchars($_POST["book"]);
             foreach ($db->query("SELECT * FROM public.scriptures WHERE book='$book'") as $row):
-            $_SESSION["$book"] = $row;
         ?>
             <form method="POST">
             <li>
@@ -44,7 +40,7 @@
                     :
                     <label for="verse"><?php echo($row["verse"]); ?></label>
                 </strong>
-                <input type="text" name="book" value="<?php echo($book); ?>" style="display: none;" />
+                <input type="text" name="id" value="<?php echo($row["id"]); ?>" style="display: none;" />
                 <input type="submit" value="Details" formaction="team3.php" />
             </li>
             </form>
