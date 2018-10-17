@@ -35,11 +35,11 @@
             <form method="POST">
             <li>
                 <strong>
-                    <label name="book"><?php echo($row["book"]); ?></label>
-                    <label name="chapter"><?php echo($row["chapter"]); ?></label>
+                    <label for="book"><?php echo($row["book"]); ?></label>
+                    <label for="chapter"><?php echo($row["chapter"]); ?></label>
                     :
-                    <label name="verse"><?php echo($row["verse"]); ?></label>
-                    <label name="content" style="display: none;"><?php echo($row["content"]); ?></label>
+                    <label for="verse"><?php echo($row["verse"]); ?></label>
+                    <label for="content" style="display: none;"><?php echo($row["content"]); ?></label>
                 </strong>
                 <input type="submit" value="Details" formaction="team3.php" />
             </li>
