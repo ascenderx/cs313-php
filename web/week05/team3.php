@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    $book = $_SESSION("book");
+    $row = $_SESSION("$book");
+?>
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
@@ -8,12 +13,14 @@
         <h1>Scripture Details</h1>
         
         <?php
-            $book = htmlspecialchars($_POST["book"]);
-            $chapter = htmlspecialchars($_POST["chapter"]);
-            $verse = htmlspecialchars($_POST["verse"]);
-            $content = htmlspecialchars($_POST["content"]);
-
-            echo("$book $chapter:$verse &ldquo;$content&rdquo;");
+            $bookName = $row["book"];
+            $chapter = $row["chapter"];
+            $verse = $row["verse"];
+            $content = $row["content"];
+            echo("$bookName $chapter:$verse &ldquo;$content&rdquo;");
         ?>
     </body>
 </html>
+<?php
+    session_destroy();
+?>
