@@ -2,6 +2,7 @@
     session_start();
     $book = $_SESSION("book");
     $row = $_SESSION("$book");
+    echo($book);
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
