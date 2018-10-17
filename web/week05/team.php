@@ -25,5 +25,18 @@
                 die();
             }
         ?>
+        <h1>Scripture Resources</h1>
+        <ul>
+        <?php foreach ($db->query("SELECT * FROM public.scriptures") as $row): ?>
+            <li>
+                <strong>
+                    <?php echo($row["book"]); ?>
+                    <?php echo($row["chapter"]); ?>:<?php echo($row["verse"]); ?>
+                </strong>
+                &ndash;
+                &ldquo;<?php echo($row["content"]); ?>&rdquo;
+            </li>
+        <?php endforeach; ?>
+        </ul>
     </body>
 </html>
