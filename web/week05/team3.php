@@ -1,3 +1,5 @@
+<?php vardump($_POST); ?>
+
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
