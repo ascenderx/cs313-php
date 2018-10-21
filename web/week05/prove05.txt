@@ -1,0 +1,43 @@
+After completing the assignment, please answer the questions in this text file and submit it to I-Learn.
+
+1. Copy and paste the URL for your web application:
+https://byui-cs313-downerj.herokuapp.com
+
+2. Copy and paste the URL for your source code repository (e.g., GitHub):
+https://github.com/user0x4A35/byui-cs313-downerj.git
+
+3. Briefly list and describe the elements of the application that are functioning. Include any special instructions about how to login and/or use your application.
+a. There is a Login page with basic login functionality. (No JS is used yet to validate client-side.)
+-> To login, enter the username "" and the password "".
+b. There is a Home page which lists the user's assignments from the database.
+-> Links on the page redirect the user to a "View Assignment" page.
+c. The View Assignment page lists either:
+-> The tasks attached to the selected assignment with its corresponding fields; or
+-> A message indicating that there are no tasks attached to the selected assignment.
+
+4. Briefly describe any pieces of the assignment that are not yet working correctly.
+a. There is very little custom JavaScript on this sub-site.
+-> JavaScript will be needed to create the "timer" functionality of the web app.
+b. The login function is not secure and needs SSL implemented to create a secure connection.
+
+5. Briefly describe the "coolest" thing you learned while completing this assignment.
+The most interesting thing was implementing a basic login page using PHP and PostgreSQL.
+
+6. Why should you create a separate user account for your application to access the database?
+Each user has different data in the database, much of which should not be visible to other users nor
+to the public in general.
+
+7. Please select the category you feel best describes your assignment:
+A - Some attempt was made
+B - Developing, but significantly deficient
+C - Slightly deficient, but still mostly adequate
+D - Meets requirements
+E - Shows creativity and excels above and beyond requirements
+<D>
+
+8. Provide a brief justification (1-2 sentences) for selecting that category.
+I did not fully implement the JavaScript timer needed for my web app.
+That being said:
+a. The assignment did not indicate that login functionality was needed, but I provided such.
+b. Also, I incorporated custom PHP "modules" for login, logout and redirection.
+c. I also re-used the template PHP and CSS from previous projects (and the root directory).
