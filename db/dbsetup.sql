@@ -1,37 +1,44 @@
-CREATE TABLE Students (
+CREATE TABLE students (
     id          SERIAL PRIMARY KEY,
     name        varchar(64)
 );
 
-CREATE TABLE Categories (
+-- CREATE TABLE categories (
+--     id          SERIAL PRIMARY KEY,
+--     name        varchar(64)
+-- );
+
+-- CREATE TABLE courses (
+--     eduid       varchar(16) UNIQUE NOT NULL
+-- ) INHERITS (categories);
+
+CREATE TABLE courses (
     id          SERIAL PRIMARY KEY,
     name        varchar(64),
-    student     int REFERENCES Students (id) NOT NULL
+    eduid       varchar(16) UNIQUE NOT NULL
 );
 
-CREATE TABLE Courses (
-    eduID       varchar(16) NOT NULL
-) INHERITS (Categories);
 
-CREATE TABLE Assignments (
+CREATE TABLE assignments (
     id          SERIAL PRIMARY KEY,
     name        varchar(64),
-    dueDate     date,
-    category    int REFERENCES Categories (id) NOT NULL
+    duedate     date,
+    course      int REFERENCES courses (id) NOT NULL,
+    student     int REFERENCES students (id) NOT NULL
 );
 
-CREATE TYPE Status AS enum (
+CREATE TYPE status AS enum (
     'pending', 'ready', 'running', 'paused',
     'completed', 'cancelled'
 );
 
-CREATE TABLE Tasks (
+CREATE TABLE tasks (
     id          SERIAL PRIMARY KEY,
     name        varchar(64),
     description text,
     duration    interval NOT NULL,
     preemptable boolean NOT NULL,
     required    boolean NOT NULL,
-    status      Status NOT NULL,
-    assignment  int REFERENCES Assignments (id) NOT NULL
+    status      status NOT NULL,
+    assignment  int REFERENCES assignments (id) NOT NULL
 );
