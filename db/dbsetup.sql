@@ -18,7 +18,6 @@ CREATE TABLE courses (
     eduid       varchar(16) UNIQUE NOT NULL
 );
 
-
 CREATE TABLE assignments (
     id          SERIAL PRIMARY KEY,
     name        varchar(64),
