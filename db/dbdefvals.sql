@@ -1,5 +1,5 @@
 INSERT INTO students (name, username, password) VALUES
-    ('Timmy', 'timmy2048', 'thisIsAPASSWORD');
+    ('Timmy', 'timmy2048', /* password */);
 
 INSERT INTO courses (name, eduid) VALUES
     ('Web Engineering I', 'CS 213'),
