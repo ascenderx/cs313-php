@@ -1,6 +1,8 @@
 CREATE TABLE students (
     id          SERIAL PRIMARY KEY,
-    name        varchar(64)
+    name        varchar(64),
+    username    varchar(64) UNIQUE NOT NULL,
+    password    varchar(64) NOT NULL
 );
 
 -- CREATE TABLE categories (
