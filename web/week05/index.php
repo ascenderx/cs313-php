@@ -1,6 +1,13 @@
 <?php
     session_start();
 
+    require("./modules/redirects.php");
+
+    $user = $_SESSION["user"];
+    if (isset($user)) {
+        loginSuccess($user);
+    }
+
     $valid = $_SESSION["valid-credentials"];
     if (isset($valid) || !empty($valid)) {
         $valid = htmlspecialchars(trim($valid));
