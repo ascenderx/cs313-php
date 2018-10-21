@@ -4,8 +4,9 @@
     require("./modules/redirects.php");
 
     $user = $_SESSION["user"];
+    $name = $_SESSION["name"];
     if (isset($user)) {
-        loginSuccess($user);
+        loginSuccess($user, $name);
     }
 
     $valid = $_SESSION["valid-credentials"];

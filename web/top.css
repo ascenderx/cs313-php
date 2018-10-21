@@ -194,7 +194,9 @@ code, .code {
     color: #fff;
     border-radius: 2px;
     font-family: "Anonymous Pro", monospace;
+    font-size: inherit;
     text-align: center;
+    border: none;
 }
 
 .u-button:hover, .u-button:focus {

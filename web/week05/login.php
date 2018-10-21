@@ -2,6 +2,7 @@
     session_start();
 
     require("./modules/redirects.php");
+    require('./modules/dbconnect.php');
 
     // check to see if fields are populated
     $username = trim($_POST["username"]);
@@ -13,7 +14,6 @@
     // query database for login validity
     $username = htmlspecialchars($username);
     $password = htmlspecialchars($password);
-    require('./modules/dbconnect.php');
     $table = "students";
     $stmt = $db->prepare("SELECT * FROM $table WHERE username=:username AND password=:password");
     $stmt->execute(array(":username" => $username, ":password" => $password));
@@ -22,5 +22,6 @@
         loginFail();
     }
 
-    loginSuccess($username);
+    $name = $rows[0]["name"];
+    loginSuccess($username, $name);
 ?>
