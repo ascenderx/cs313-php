@@ -45,7 +45,13 @@
                 <div class="u-heading-2 u-center-text">Assignment List</div>
                 <hr />
                 <div class="u-button-container-large u-centered">
-                    <?php $count = 1; foreach($ASSIGNMENTS as $weekNum => $title): ?>
+                    <?php
+                        $count = 1; foreach($ASSIGNMENTS as $weekNum => $title):
+                            if ($title === null) {
+                                $count++;
+                                continue;
+                            }
+                    ?>
                         <a href="<?php echo("week$weekNum/index.php"); ?>">
                             <div class="u-button u-button-large">
                                 Week <?php echo("$count"); ?>
