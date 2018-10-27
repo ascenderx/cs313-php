@@ -8,19 +8,22 @@ function viewAssign(id) {
         dataObj[key] = value;
     }
 
-    jQuery.ajax({
+    $.ajax({
         url: 'view-assign.php',
         method: 'get',
         data: dataObj,
         statusCode: {
             200: function(data) {
                 console.log(data);
+                showDialog(`Tasks for Assignment #${id}`, data);
             },
             204: function() {
                 console.log('No records found');
+                showDialog(`Tasks for Assignment #${id}`, 'No records found');
             },
             406: function() {
                 console.log('Invalid request');
+                showDialog('Error', 'Invalid request');
             }
         }
     });

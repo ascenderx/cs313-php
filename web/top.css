@@ -283,15 +283,6 @@ img.u-store-img {
     display: none;
 }
 
-.u-page-mask {
-    background: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
-
 @media screen and (max-width: 400px) {
     .u-button-container-large {
         width: auto;

@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <div class="u-content u-media-off">
+            <div class="u-content">
                 <table class="u-fill">
                 <tr>
                     <td><span class="u-heading-2">Home</span><td>
@@ -71,6 +71,7 @@
                 </table>
             </div>
         </div>
+        <?php require("$MODULE_DIR/dialog.php"); ?>
 
         <script type="application/javascript" src="./view-assign.js"></script>
     </body>
