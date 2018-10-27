@@ -72,6 +72,13 @@
             </div>
         </div>
         <?php require("$MODULE_DIR/dialog.php"); ?>
+        <div class="u-page-mask"></div>
+        <div class="u-dialog">
+            <div class="u-dialog-header u-heading-2"></div>
+            <hr />
+            <div class="u-dialog-content"></div>
+            <div class="u-button u-dialog-close">Close</div>
+        </div>
 
         <script type="application/javascript" src="./view-assign.js"></script>
     </body>
