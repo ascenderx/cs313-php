@@ -72,7 +72,6 @@
             </div>
         </div>
 
-        <script type="application/javascript" src="./modules/ajax.js"></script>
         <script type="application/javascript" src="./view-assign.js"></script>
     </body>
 </html>

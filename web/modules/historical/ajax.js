@@ -5,7 +5,7 @@ const STATE_LOADING = 3;
 const STATE_DONE = 4;
 const STATUS_SUCCESS = 200;
 const STATUS_EMPTY = 204;
-const STATUS_UNACCEPTABLE = 406;
+const STATUS_INVALID = 406;
 
 function ajax(method, resource, data) {
     let xhr = new XMLHttpRequest();
