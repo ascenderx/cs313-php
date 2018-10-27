@@ -8,18 +8,19 @@ function viewAssign(id) {
         dataObj[key] = value;
     }
 
-    const STATUS_SUCCESS = 200;
-    const STATUS_EMPTY = 204;
-    const STATUS_INVALID = 406;
     jQuery.ajax({
         url: 'view-assign.php',
         method: 'get',
         data: dataObj,
-        success: (data, textStatus, xhr) => {
-            if (xhr.status == STATUS_SUCCESS) {
-                console.log(`${data}`);
-            } else if (xhr.status == STATUS_EMPTY) {
-                console.log(`No records found`);
+        statusCode: {
+            200: function(data) {
+                console.log(data);
+            },
+            204: function() {
+                console.log('No records found');
+            },
+            406: function() {
+                console.log('Invalid request');
             }
         }
     });
