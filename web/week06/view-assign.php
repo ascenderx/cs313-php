@@ -82,6 +82,8 @@
             Double-click a cell to edit it.
             <div class="u-dialog-content"></div>
             <div class="u-button u-dialog-new">New</div>
+            <div class="u-button u-dialog-add">Apply</div>
+            <div class="u-button u-dialog-cancel">Cancel</div>
             <div class="u-button u-dialog-close">Close</div>
         </div>
 

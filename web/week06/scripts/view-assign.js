@@ -1,3 +1,6 @@
+/**
+ * CONVERT TO SENTENCE CASE
+ */
 function toSentenceCase(text) {
     text = text.toString();
     let textNew = text.charAt(0).toUpperCase();
@@ -7,10 +10,16 @@ function toSentenceCase(text) {
     return textNew;
 }
 
+/**
+ * IS VALUE SET
+ */
 function isSet(val) {
     return (val !== undefined && val !== null);
 }
 
+/**
+ * VIEW ASSIGNMENT
+ */
 function viewAssign(id) {
     let form = document.forms.namedItem(`form-${id}`);
     let data = new FormData(form);
@@ -46,6 +55,9 @@ function viewAssign(id) {
     });
 }
 
+/**
+ * SHOW ASSUMING NO TASKS FOUND
+ */
 function showNoTasks(id) {
     $.ajax({
         url: './modules/get-tasks-columns.php',
@@ -68,9 +80,10 @@ function showNoTasks(id) {
     });
 }
 
-function updateTask(row, column, value, cell) {
-    let label = cell.children[0];
-
+/**
+ * UPDATE TASK
+ */
+function updateTask(assignID, row, column, value) {
     $.ajax({
         url: './modules/update-task.php',
         method: 'post',
@@ -83,7 +96,7 @@ function updateTask(row, column, value, cell) {
             200: function(xhr) {
                 console.log('Update success');
                 console.log(xhr.responseText);
-                label.innerText = (value) ? value : "null";
+                viewAssign(assignID);
             },
             404: function() {
                 console.log('Page not found');  
@@ -100,6 +113,38 @@ function updateTask(row, column, value, cell) {
     });
 }
 
+/**
+ * ADD TASK
+ */
+function addTask(assignID, values) {
+    $.ajax({
+        url: './modules/add-task.php',
+        method: 'post',
+        data: values,
+        statusCode: {
+            200: function(xhr) {
+                console.log('Update success');
+                console.log(xhr.responseText);
+                viewAssign(assignID);
+            },
+            404: function() {
+                console.log('Page not found');  
+            },
+            406: function(xhr) {
+                console.log('Invalid request');
+                console.log(xhr.responseText);
+            },
+            409: function(xhr) {
+                console.log('Update conflict');
+                console.log(xhr.responseText);
+            }
+        }
+    });
+}
+
+/**
+ * DELETE TASK
+ */
 function deleteTask(taskId, assignID) {
     let answer = confirm(`Are you sure you want to delete task #${taskId}?`);
     if (!answer) {
@@ -134,6 +179,9 @@ function deleteTask(taskId, assignID) {
     });
 }
 
+/**
+ * GENERATE TASK TABLE
+ */
 function generateTaskTable(assignID, data, assumeEmpty) {
     let div = document.createElement('div');
     let br = document.createElement('br');
@@ -144,14 +192,59 @@ function generateTaskTable(assignID, data, assumeEmpty) {
     table.className = 'u-dialog-table';
     table.style.borderCollapse = 'collapse';
 
+    // create table header
+    let theader = table.createTHead();
+    let rowh = theader.insertRow();
+
+    $btDialogNew = $('.u-dialog-new');
+    $btDialogAdd = $('.u-dialog-add');
+    $btDialogCancel = $('.u-dialog-cancel');
+    
+    // click listener for the "New" button
+    $btDialogNew[0].onclick = () => {
+        $btDialogNew.css('display', 'none');
+        $btDialogAdd.css('display', 'initial');
+        $btDialogCancel.css('display', 'initial');
+        
+        let row = table.insertRow();
+        row.insertCell();
+        let cellsH = table.tHead.rows[0].cells;
+        for (let c = 1; c < cellsH.length - 2; c++) {
+            let col = cellsH[c].innerText.toLowerCase();
+            let cell = row.insertCell();
+            let input = document.createElement('input');
+            input.id = col;
+            input.name = 'data-add';
+            input.style.width = '90%';
+            cell.appendChild(input);
+        }
+        let cellAssign = row.insertCell();
+        cellAssign.innerText = assignID;
+        row.insertCell();
+    };
+
+    // click listener for the "Apply"/"Add" button
+    $btDialogAdd[0].onclick = () => {
+        let inputs = document.getElementsByName('data-add');
+        let obj = {'assign-id': assignID};
+        for (let input of inputs) {
+            let col = input.id;
+            let value = input.value;
+            obj[col] = value;
+        }
+
+        addTask(assignID, obj);
+    };
+
+    // click listener for the "Cancel" button
+    $btDialogCancel[0].onclick = () => {
+        viewAssign(assignID);
+    };
+
     // if assuming the desired data was empty, then we'll
     // treat the "data" object as a row of columns and
     // return a different table
     if (assumeEmpty) {
-        // create table header
-        let theader = table.createTHead();
-        let rowh = theader.insertRow();
-
         // insert a header for each column
         data.forEach((col) => {
             let cell = document.createElement('th');
@@ -165,10 +258,6 @@ function generateTaskTable(assignID, data, assumeEmpty) {
 
         return table;
     }
-
-    // create table header
-    let theader = table.createTHead();
-    let rowh = theader.insertRow();
 
     // insert a header for each column
     for (let key in data[0]) {
@@ -195,7 +284,7 @@ function generateTaskTable(assignID, data, assumeEmpty) {
             let label = document.createElement('label');
             if (title != 'id' && title != 'assignment') {
                 $(label).dblclick(() => {
-                    editCell(rowID, key, cell);
+                    editCell(assignID, rowID, key, cell);
                 });
             }
             if (!isSet(value)) {
@@ -222,7 +311,10 @@ function generateTaskTable(assignID, data, assumeEmpty) {
     return table;
 }
 
-function editCell(rowID, columnName, cell) {
+/**
+ * EDIT CELL
+ */
+function editCell(assignID, rowID, columnName, cell) {
     let text = cell.children[0].innerText;
     let input = document.createElement('input');
     if (!text || text.toLowerCase() == 'null') {
@@ -235,21 +327,31 @@ function editCell(rowID, columnName, cell) {
 
     $(input).focus();
     $(input).blur(() => {
-        updateCell(rowID, columnName, cell);
+        updateCell(assignID, rowID, columnName, cell);
     });
 }
 
-function updateCell(rowID, columnName, cell) {
+/**
+ * UPDATE CELL
+ */
+function updateCell(assignID, rowID, columnName, cell) {
     let input = cell.children[1];
     let text = input.value.trim();
     cell.removeChild(input);
     let label = cell.children[0];
     label.style.display = 'initial';
-    updateTask(rowID, columnName, text, cell);
+    updateTask(assignID, rowID, columnName, text);
 }
 
+/**
+ * INITIALIZE DIALOG
+ */
 function initDialog(table) {
     let $btDialogNew = $('.u-dialog-new');
+    let $btDialogAdd = $('.u-dialog-add');
+    let $btDialogCancel = $('.u-dialog-cancel');
 
     $btDialogNew.css('display', 'initial');
+    $btDialogAdd.css('display', 'none');
+    $btDialogCancel.css('display', 'none');
 }
