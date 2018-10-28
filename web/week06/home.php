@@ -64,5 +64,7 @@
         </div>
 
         <script type="application/javascript" src="./view-assign.js"></script>
+        <script type="application/javascript" src="./modules/timer.js"></script>
+        <script type="application/javascript" src="./home.js"></script>
     </body>
 </html>
