@@ -33,8 +33,29 @@ function viewAssign(id) {
                 showDialog(`Tasks for Assignment #${id}`, table);
             },
             204: function() {
+                showNoTasks(id);
+            },
+            404: function() {
+                console.log('Page not found');  
+            },
+            406: function() {
                 initDialog();
-                showDialog(`Tasks for Assignment #${id}`, 'No records found');
+                showDialog('Error', 'Invalid request');
+            }
+        }
+    });
+}
+
+function showNoTasks(id) {
+    $.ajax({
+        url: './modules/get-tasks-columns.php',
+        method: 'get',
+        statusCode: {
+            200: function(data) {
+                let cols = JSON.parse(data);
+                let table = generateTaskTable(id, cols, true);
+                initDialog(table);
+                showDialog(`Tasks for Assignment #${id}`, table);
             },
             404: function() {
                 console.log('Page not found');  
@@ -113,16 +134,37 @@ function deleteTask(taskId, assignID) {
     });
 }
 
-function generateTaskTable(assignID, data) {
+function generateTaskTable(assignID, data, assumeEmpty) {
     let div = document.createElement('div');
-    let caption = document.createElement('label');
     let br = document.createElement('br');
     let table = document.createElement('table');
-    div.appendChild(caption);
     div.appendChild(br);
     div.appendChild(table);
     
     table.className = 'u-dialog-table';
+    table.style.borderCollapse = 'collapse';
+
+    // if assuming the desired data was empty, then we'll
+    // treat the "data" object as a row of columns and
+    // return a different table
+    if (assumeEmpty) {
+        // create table header
+        let theader = table.createTHead();
+        let rowh = theader.insertRow();
+
+        // insert a header for each column
+        data.forEach((col) => {
+            let cell = document.createElement('th');
+            cell.innerText = toSentenceCase(col);
+            rowh.appendChild(cell);
+        });
+
+        // insert a blank header for the "delete" row
+        let dellCellH = document.createElement('th');
+        rowh.append(dellCellH);
+
+        return table;
+    }
 
     // create table header
     let theader = table.createTHead();
@@ -176,8 +218,6 @@ function generateTaskTable(assignID, data) {
         });
         delCell.appendChild(btDel);
     });
-
-    table.style.borderCollapse = 'collapse';
 
     return table;
 }
