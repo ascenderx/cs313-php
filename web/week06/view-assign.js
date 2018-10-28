@@ -9,7 +9,7 @@ function viewAssign(id) {
     }
 
     $.ajax({
-        url: 'view-assign.php',
+        url: 'view-tasks.php',
         method: 'get',
         data: dataObj,
         statusCode: {

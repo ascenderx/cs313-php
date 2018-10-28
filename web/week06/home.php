@@ -2,7 +2,7 @@
     session_start();
 
     require("./modules/redirects.php");
-    require('./modules/dbconnect.php');
+    // require('./modules/dbconnect.php');
 
     $user = $_SESSION["user"];
     $name = $_SESSION["name"];
@@ -33,7 +33,7 @@
                     <a href="<?=$ROOT ?>/assign.php">
                         <div class="u-button">&gt; Assignments</div>  
                     </a>
-                    <a href="#">
+                    <a href="./home.php">
                         <div class="u-button">&gt; Database (Read-write)</div>
                     </a>
                 </div>
@@ -50,24 +50,7 @@
                 </table>
                 <hr />
                 Welcome, <?=$name ?>!<br />
-                Please select the assignment to view:<br />
                 <table>
-                <?php
-                    $query = "SELECT * FROM assignments";
-                    foreach ($db->query($query) as $row):
-                        $id = $row["id"];
-                        $name = $row["name"];
-                ?>
-                    <tr>
-                    <form id="form-<?=$id ?>">
-                        <td style="display: none;">
-                            <input type="text" name="assign-id" value="<?=$id ?>" readonly />
-                        </td>
-                        <td><button type="button" class="u-button" onclick="viewAssign(<?=$id ?>);">View</button></td>
-                        <td><?=$name ?></td>
-                    </form>
-                    </tr>
-                <?php endforeach; ?>
                 </table>
             </div>
         </div>
