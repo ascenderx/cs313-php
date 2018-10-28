@@ -44,7 +44,7 @@
                 <tr>
                     <td><span class="u-heading-2">Home</span><td>
                     <td class="u-right-text">
-                        <a href="./logout.php"><div class="u-button">Logout</div></a>
+                        <a href="./modules/logout.php"><div class="u-button">Logout</div></a>
                     </td>
                 </tr>
                 </table>

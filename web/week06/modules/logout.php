@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    require("./modules/redirects.php");
+    require("./redirects.php");
 
     logout();
 ?>

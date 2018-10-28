@@ -71,7 +71,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <input type="submit" class="u-button u-fill" value="Log In" formaction="login.php" />
+                            <input type="submit" class="u-button u-fill" value="Log In" formaction="./modules/login.php" />
                         </td>
                     </tr>
                     </table>

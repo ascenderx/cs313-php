@@ -1,8 +1,8 @@
 <?php
     session_start();
 
-    require("./modules/redirects.php");
-    require('./modules/dbconnect.php');
+    require("./redirects.php");
+    require('./dbconnect.php');
 
     $user = $_SESSION["user"];
     if (!isset($user)) {

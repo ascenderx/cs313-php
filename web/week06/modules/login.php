@@ -1,8 +1,8 @@
 <?php
     session_start();
 
-    require("./modules/redirects.php");
-    require('./modules/dbconnect.php');
+    require("./redirects.php");
+    require('./dbconnect.php');
 
     // check to see if fields are populated
     $username = trim($_POST["username"]);

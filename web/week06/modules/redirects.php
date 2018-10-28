@@ -1,13 +1,13 @@
 <?php
     function loginFail() {
         $_SESSION["valid-credentials"] = "false";
-        header("Location: index.php");
+        header("Location: /week06/index.php");
         exit;
     }
 
     function loginRedirect() {
         $_SESSION["valid-credentials"] = null;
-        header("Location: index.php");
+        header("Location: /week06/index.php");
         exit;
     }
 
@@ -22,7 +22,7 @@
         $_SESSION["user"] = $userKey;
         $_SESSION["name"] = $name;
         $_SESSION["valid-credentials"] = null;
-        header("Location: home.php");
+        header("Location: /week06/home.php");
         exit;
     }
 ?>

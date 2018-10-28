@@ -48,7 +48,7 @@
                     <td><span class="u-heading-2">View Assignments</span><td>
                     <td class="u-right-text">
                         <a href="./home.php"><div class="u-button">Back</div></a>
-                        <a href="./logout.php"><div class="u-button">Logout</div></a>
+                        <a href="./modules/logout.php"><div class="u-button">Logout</div></a>
                     </td>
                 </tr>
                 </table>

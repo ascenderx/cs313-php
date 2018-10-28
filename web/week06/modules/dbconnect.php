@@ -11,7 +11,7 @@
         $dbName = ltrim($dbOpts["path"],'/');
         
         if (!isset($dbHost) || !isset($dbPort) || !isset($dbName)) {   
-            require("./modules/localinfo.php");
+            require("localinfo.php");
         }
 
         $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);

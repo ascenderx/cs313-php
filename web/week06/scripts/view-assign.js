@@ -14,7 +14,7 @@ function isSet(val) {
 function viewAssign(id) {
     let form = document.forms.namedItem(`form-${id}`);
     let data = new FormData(form);
-    let dataObj = {};
+    let dataObj = { 'force-if-empty': true };
     for (let datum of data) {
         let key = datum[0];
         let value = datum[1];
@@ -22,13 +22,13 @@ function viewAssign(id) {
     }
 
     $.ajax({
-        url: 'view-tasks.php',
+        url: './modules/view-tasks.php',
         method: 'get',
         data: dataObj,
         statusCode: {
             200: function(data) {
                 let obj = JSON.parse(data);
-                let table = generateTaskTable(obj);
+                let table = generateTaskTable(id, obj);
                 initDialog(table);
                 showDialog(`Tasks for Assignment #${id}`, table);
             },
@@ -51,7 +51,7 @@ function updateTask(row, column, value, cell) {
     let label = cell.children[0];
 
     $.ajax({
-        url: 'update-task.php',
+        url: './modules/update-task.php',
         method: 'post',
         data: {
             'task-id': row,
@@ -79,23 +79,24 @@ function updateTask(row, column, value, cell) {
     });
 }
 
-function deleteTask(id, table, row) {
-    let answer = confirm(`Are you sure you want to delete task #${id}?`);
+function deleteTask(taskId, assignID) {
+    let answer = confirm(`Are you sure you want to delete task #${taskId}?`);
     if (!answer) {
         return;
     }
-    
+
     $.ajax({
-        url: 'delete-task.php',
+        url: './modules/delete-task.php',
         method: 'post',
         data: {
-            'task-id': id
+            'task-id': taskId
         },
         statusCode: {
             200: function(xhr) {
                 console.log('Update success');
                 console.log(xhr.responseText);
-                table.deleteRow(row);
+                // refresh the dialog
+                viewAssign(assignID);
             },
             404: function() {
                 console.log('Page not found');
@@ -112,7 +113,7 @@ function deleteTask(id, table, row) {
     });
 }
 
-function generateTaskTable(data) {
+function generateTaskTable(assignID, data) {
     let div = document.createElement('div');
     let caption = document.createElement('label');
     let br = document.createElement('br');
@@ -145,7 +146,6 @@ function generateTaskTable(data) {
         let rowID = datum['id'];
 
         // add each field
-        let rowCount = 0;
         for (let key in datum) {
             let value = datum[key];
             let cell = row.insertCell();
@@ -172,11 +172,9 @@ function generateTaskTable(data) {
         btDel.className = 'u-button';
         btDel.innerText = 'Delete';
         $(btDel).click(() => {
-            deleteTask(rowID, table, rowCount);
+            deleteTask(rowID, assignID);
         });
         delCell.appendChild(btDel);
-
-        rowCount++;
     });
 
     table.style.borderCollapse = 'collapse';
@@ -207,7 +205,6 @@ function updateCell(rowID, columnName, cell) {
     cell.removeChild(input);
     let label = cell.children[0];
     label.style.display = 'initial';
-    // label.innerText = (text) ? text : 'null';
     updateTask(rowID, columnName, text, cell);
 }
 
