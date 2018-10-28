@@ -60,18 +60,58 @@ function generateTaskTable(data) {
     }
 
     // create table body
+    let rowNum = 0;
     data.forEach((datum) => {
         let row = table.insertRow();
+        let col = 0;
         for (let key in datum) {
             let value = datum[key];
             let cell = row.insertCell();
-            cell.innerText = (isSet(value)) ? toSentenceCase(value) : 'null';
+            let title = rowh.cells[col].innerText.toLowerCase();
+            let label = document.createElement('label');
+            if (title != 'id' && title != 'assignment') {
+                $(label).dblclick(() => {
+                    editCell(rowNum, key, cell);
+                });
+            }
+            label.innerText = (isSet(value)) ? value : 'null';
+            cell.appendChild(label);
+            col++;
         }
+        rowNum++;
     });
 
     table.style.borderCollapse = 'collapse';
 
     return table;
+}
+
+function editCell(rowNum, columnName, cell) {
+    let text = cell.children[0].innerText;
+    let input = document.createElement('input');
+    input.style.width = '90%';
+    if (!text || text.toLowerCase() == 'null') {
+        text = '';
+    } else {
+        input.value = text;
+    }
+    // cell.removeChild(cell.childNodes[0]);
+    cell.children[0].style.display = 'none';
+    cell.appendChild(input);
+
+    $(input).focus();
+    $(input).blur(() => {
+        updateCell(rowNum, columnName, cell);
+    });
+}
+
+function updateCell(rowNum, columnName, cell) {
+    let input = cell.children[1];
+    let text = input.value;
+    cell.removeChild(input);
+    let label = cell.children[0];
+    label.style.display = 'initial';
+    label.innerText = text;
 }
 
 function initDialog(table) {
@@ -82,31 +122,4 @@ function initDialog(table) {
     $btDialogDone.css('display', 'none');
     $btDialogEdit.css('display', 'initial');
     $btDialogNew.css('display', 'none');
-
-    $btDialogEdit.click(() => {
-        $btDialogEdit.css('display', 'none');
-        $btDialogDone.css('display', 'initial');
-        $btDialogNew.css('display', 'initial');
-
-        let header = table.rows[0];
-        for (let r = 1; r < table.rows.length; r++) {
-            let row = table.rows[r];
-            for (let c = 0; c < row.cells.length; c++) {
-                let cell = row.cells[c];
-                let title = header.cells[c].innerText.toLowerCase();
-                if (title != 'id' && title != 'assignment') {
-                    let text = cell.innerText;
-                    let input = document.createElement('input');
-                    input.style.width = '90%';
-                    input.value = text;
-                    cell.innerHTML = '';
-                    cell.appendChild(input);
-                }
-            }
-        }
-    });
-
-    $btDialogDone.click(() => {
-
-    });
 }
