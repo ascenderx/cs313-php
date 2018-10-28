@@ -52,7 +52,7 @@
         $('.u-dialog-content').html(content);
 
         $('.u-dialog-close').click(hideDialog);
-        $('.u-page-mask').click(hideDialog);
+        $('.u-page-mask').dblclick(hideDialog);
     }
 
     function hideDialog() {

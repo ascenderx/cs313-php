@@ -22,7 +22,7 @@
 
     $assign = htmlspecialchars(trim($assign));
     
-    $stmt = $db->prepare("SELECT * FROM tasks WHERE assignment=:assign");
+    $stmt = $db->prepare("SELECT * FROM tasks WHERE assignment=:assign ORDER BY id;");
     $stmt->execute(array(":assign" => $assign));
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

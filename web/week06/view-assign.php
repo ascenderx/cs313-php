@@ -79,10 +79,9 @@
         <div class="u-dialog">
             <div class="u-dialog-header u-heading-2"></div>
             <hr />
+            Double-click a cell to edit it.
             <div class="u-dialog-content"></div>
-            <div class="u-button u-dialog-edit">Edit</div>
             <div class="u-button u-dialog-new">New</div>
-            <div class="u-button u-dialog-done">Apply</div>
             <div class="u-button u-dialog-close">Close</div>
         </div>
 
