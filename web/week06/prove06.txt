@@ -1,0 +1,41 @@
+After completing the assignment, please answer the questions in this text file and submit it to I-Learn.
+
+1. Copy and paste the URL for your web application:
+https://byui-cs313-downerj.herokuapp.com
+
+2. Copy and paste the URL for your source code repository (e.g., GitHub):
+https://github.com/user0x4A35/byui-cs213-downerj.git
+
+3. Briefly list and describe the elements of the application that are functioning. Include any special instructions about how to login and/or use your application.
+- Login
+- Get assignment & task lists
+- Update/edit task
+- Delete task
+- Add new task (and cancel during edit)
+
+4. Briefly describe any pieces of the assignment that are not yet working correctly.
+- The login page needs to be forced to HTTPS.
+- The timer/scheduler needs to be implemented.
+
+5. Briefly describe the "coolest" thing you learned while completing this assignment.
+The coolest thing is that I can create a web app that can serve as a personal database with my own
+business rules, GUI and data types.
+
+6. What is a benefit of having a foreign key constraint?
+Foreign keys ensure that each row of data is properly linked to its logical counterpart tables.
+This is necessary to retain the "relational" nature of the database.
+
+7. Please select the category you feel best describes your assignment:
+A - Some attempt was made
+B - Developing, but significantly deficient
+C - Slightly deficient, but still mostly adequate
+D - Meets requirements
+E - Shows creativity and excels above and beyond requirements
+<E>
+
+8. Provide a brief justification (1-2 sentences) for selecting that category.
+- I added dynamic-column searching in my PHP modules which allow querying, inserting and updating
+regardless of what column names are present in the "tasks" table at any given time (e.g. the column
+names aren't hard-coded in my PHP/SQL queries).
+- I added a function Timer JavaScript class for use in my scheduler UI.
+
