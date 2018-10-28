@@ -36,6 +36,9 @@ function viewAssign(id) {
                 initDialog();
                 showDialog(`Tasks for Assignment #${id}`, 'No records found');
             },
+            404: function() {
+                console.log('Page not found');  
+            },
             406: function() {
                 initDialog();
                 showDialog('Error', 'Invalid request');
@@ -61,8 +64,45 @@ function updateTask(row, column, value, cell) {
                 console.log(xhr.responseText);
                 label.innerText = (value) ? value : "null";
             },
-            406: function() {
+            404: function() {
+                console.log('Page not found');  
+            },
+            406: function(xhr) {
                 console.log('Invalid request');
+                console.log(xhr.responseText);
+            },
+            409: function(xhr) {
+                console.log('Update conflict');
+                console.log(xhr.responseText);
+            }
+        }
+    });
+}
+
+function deleteTask(id, table, row) {
+    let answer = confirm(`Are you sure you want to delete task #${id}?`);
+    if (!answer) {
+        return;
+    }
+    
+    $.ajax({
+        url: 'delete-task.php',
+        method: 'post',
+        data: {
+            'task-id': id
+        },
+        statusCode: {
+            200: function(xhr) {
+                console.log('Update success');
+                console.log(xhr.responseText);
+                table.deleteRow(row);
+            },
+            404: function() {
+                console.log('Page not found');
+            },
+            406: function(xhr) {
+                console.log('Invalid request');
+                console.log(xhr.responseText);
             },
             409: function(xhr) {
                 console.log('Update conflict');
@@ -86,17 +126,26 @@ function generateTaskTable(data) {
     // create table header
     let theader = table.createTHead();
     let rowh = theader.insertRow();
+
+    // insert a header for each column
     for (let key in data[0]) {
         let cell = document.createElement('th');
         cell.innerText = toSentenceCase(key);
         rowh.appendChild(cell);
     }
 
+    // insert a blank header for the "delete" row
+    let dellCellH = document.createElement('th');
+    rowh.append(dellCellH);
+
     // create table body
     data.forEach((datum) => {
         let row = table.insertRow();
         let col = 0;
         let rowID = datum['id'];
+
+        // add each field
+        let rowCount = 0;
         for (let key in datum) {
             let value = datum[key];
             let cell = row.insertCell();
@@ -107,10 +156,27 @@ function generateTaskTable(data) {
                     editCell(rowID, key, cell);
                 });
             }
-            label.innerText = (isSet(value)) ? value : 'null';
+            if (!isSet(value)) {
+                value = 'null';
+            } else {
+                value = ('' + value).trim();
+            }
+            label.innerText = (value) ? value : 'null';
             cell.appendChild(label);
             col++;
         }
+
+        // add a delete button
+        let delCell = row.insertCell();
+        let btDel = document.createElement('div');
+        btDel.className = 'u-button';
+        btDel.innerText = 'Delete';
+        $(btDel).click(() => {
+            deleteTask(rowID, table, rowCount);
+        });
+        delCell.appendChild(btDel);
+
+        rowCount++;
     });
 
     table.style.borderCollapse = 'collapse';

@@ -18,7 +18,7 @@
     $value = $_POST["value"];
     if (!isset($task) || !isset($column)) {
         header("HTTP/1.0 406 Not Acceptable");
-        echo("No assignment specified");
+        echo("No task and/or column specified");
         exit;
     }
 
