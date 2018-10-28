@@ -21,6 +21,24 @@
         word-wrap: break-word;
         display: none;
     }
+
+    .u-dialog-table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .u-dialog-table th, .u-dialog-table td {
+        padding: 5px;
+    }
+
+    .u-dialog-table td {
+        border: 1px solid #000;
+    }
+
+    .u-dialog-table th {
+        font-weight: bold;
+        border-bottom: 2px solid #000;
+    }
 </style>
 <script type="application/javascript">
     function showDialog(header, content) {
@@ -31,17 +49,20 @@
             'display': 'inherit',
         });
         $('.u-dialog-header').text(header);
-        $('.u-dialog-content').text(content);
+        $('.u-dialog-content').html(content);
 
-        $('.u-dialog-close').click(() => {
-            $('.u-page-mask').css({
-                'display': 'none',
-            });
-            $('.u-dialog').css({
-                'display': 'none',
-            });
-            $('.u-dialog-header').text(null);
-            $('.u-dialog-content').text(null);
+        $('.u-dialog-close').click(hideDialog);
+        $('.u-page-mask').click(hideDialog);
+    }
+
+    function hideDialog() {
+        $('.u-page-mask').css({
+            'display': 'none',
         });
+        $('.u-dialog').css({
+            'display': 'none',
+        });
+        $('.u-dialog-header').text(null);
+        $('.u-dialog-content').text(null);
     }
 </script>

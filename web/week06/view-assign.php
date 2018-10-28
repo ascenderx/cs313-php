@@ -37,7 +37,7 @@
                         <div class="u-button">&gt; Database (Read-write)</div>
                     </a>
                     <a href="#">
-                        <div class="u-button">&gt; View Assignment</div>
+                        <div class="u-button">&gt; View Assignments</div>
                     </a>
                 </div>
             </div>
@@ -47,6 +47,7 @@
                 <tr>
                     <td><span class="u-heading-2">View Assignments</span><td>
                     <td class="u-right-text">
+                        <a href="./home.php"><div class="u-button">Back</div></a>
                         <a href="./logout.php"><div class="u-button">Logout</div></a>
                     </td>
                 </tr>
@@ -79,9 +80,12 @@
             <div class="u-dialog-header u-heading-2"></div>
             <hr />
             <div class="u-dialog-content"></div>
+            <div class="u-button u-dialog-edit">Edit</div>
+            <div class="u-button u-dialog-new">New</div>
+            <div class="u-button u-dialog-done">Apply</div>
             <div class="u-button u-dialog-close">Close</div>
         </div>
 
-        <script type="application/javascript" src="./view-assign.js"></script>
+        <script type="application/javascript" src="./scripts/view-assign.js"></script>
     </body>
 </html>

@@ -50,6 +50,9 @@
                 </table>
                 <hr />
                 Welcome, <?=$name ?>!<br />
+                What would you like to do?<br />
+                <a href="./view-assign.php"><div class="u-button">View Assignments</div></a>
+                <a href="#"><div class="u-button">Start Timer</div></a>
                 <table>
                 </table>
             </div>
@@ -63,8 +66,8 @@
             <div class="u-button u-dialog-close">Close</div>
         </div>
 
-        <script type="application/javascript" src="./view-assign.js"></script>
         <script type="application/javascript" src="./modules/timer.js"></script>
-        <script type="application/javascript" src="./home.js"></script>
+        <script type="application/javascript" src="./scripts/view-assign.js"></script>
+        <script type="application/javascript" src="./scripts/home.js"></script>
     </body>
 </html>
