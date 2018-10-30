@@ -1,6 +1,6 @@
 <?php
     /**
-     * ATTEMPT LOGIN
+     * DO LOGIN
      * This is where the DB query code will go for logging in
      * for an existing user.
      */

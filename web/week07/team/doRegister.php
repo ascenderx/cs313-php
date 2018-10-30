@@ -1,6 +1,6 @@
 <?php
     /**
-     * ATTEMPT REGISTER
+     * DO REGISTER
      * This is where the DB query code will go for signing up
      * as a new user.
      */
