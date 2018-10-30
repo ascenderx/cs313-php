@@ -40,8 +40,14 @@
 
     // query the database
     $success = (function() {
-        // add the db->query code here
         // return true or false depending on success
+        try {
+            require("dbconnect.php");
+            // add the db->query code here
+            return true;
+        } catch (PDOException $ex) {
+            return false;
+        }
     })();
 
     // upon registration, redirect the user to the login page
