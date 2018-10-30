@@ -24,7 +24,7 @@
         }
     }
 
-    function checkLoginRedirect() {
+    function checkLoginAndRedirect() {
         $userKey = $_SESSION["user-key"];
         if (isset($userKey) && !empty($userKey)) {
             header("HTTP/1.1 307 Temporary Redirect");
@@ -45,6 +45,11 @@
         header("HTTP/1.1 400 Bad Request");
         header("Location: register.php");
         exit();
+    }
+
+    function resetFailFlags() {
+        unset($_SESSION["login-fail"]);
+        unset($_SESSION["register-fail"]);
     }
 
     function createLoginSession($username) {

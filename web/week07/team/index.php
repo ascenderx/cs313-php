@@ -1,10 +1,15 @@
 <?php
+    /**
+     * WELCOME PAGE
+     */
+
     require("redirects.php");
     // forceSSL();
     checkUserCredentials();
 
     $username = $_SESSION["username"];
 ?>
+
 <!DOCTYPE html>
 <html lang="en-US">
     <head>

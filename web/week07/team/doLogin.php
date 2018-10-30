@@ -1,9 +1,12 @@
 <?php
+    /**
+     * ATTEMPT LOGIN
+     * This is where the DB query code will go for logging in
+     * for an existing user.
+     */
+
     require("redirects.php");
     // forceSSL();
-
-    // this is where the DB query code will go for logging in
-    // for an existing user
 
     function isPopulated($val) {
         return isset($val) && !empty($val) && !empty(trim($val));
@@ -23,4 +26,16 @@
     // sanitize input
     $username = htmlspecialchars($username);
     $password = htmlspecialchars($password);
+
+    // query the database
+    $success = (function() {
+        // add the db->query code here
+        // return true or false depending on success
+    })();
+
+    if ($success) {
+        login();
+    } else {
+        loginFail();
+    }
 ?>

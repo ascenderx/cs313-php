@@ -1,10 +1,15 @@
 <?php
+    /**
+     * SIGN IN PAGE
+     */
+
     require("redirects.php");
     // forceSSL();
-    checkLoginRedirect();
+    checkLoginAndRedirect();
 
     $loginFailed = ($_SESSION["login-fail"] == "true");
 ?>
+
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
@@ -15,3 +20,10 @@
 
     </body>
 </html>
+
+<?php
+    // this section resets the "fail" flag(s) so that if the user
+    // refreshes the page, then any previous error messages will
+    // not render
+    resetFailFlags();
+?>
