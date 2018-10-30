@@ -33,9 +33,24 @@
         }
     }
 
+    function loginFail() {
+        $_SESSION["login-fail"] = "true";
+        header("HTTP/1.1 400 Bad Request");
+        header("Location: login.php");
+        exit();
+    }
+
+    function registerFail() {
+        $_SESSION["register-fail"] = "true";
+        header("HTTP/1.1 400 Bad Request");
+        header("Location: register.php");
+        exit();
+    }
+
     function createLoginSession($username) {
         // generate a new random 16-bit key
         $userKey = openssl_random_pseudo_bytes(16);
+        unset($_SESSION["login-fail"]);
 
         $_SESSION["user-key"] = $userKey;
         $_SESSION["username"] = $username;

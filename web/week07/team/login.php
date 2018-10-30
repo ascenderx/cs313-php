@@ -2,6 +2,8 @@
     require("redirects.php");
     // forceSSL();
     checkLoginRedirect();
+
+    $loginFailed = ($_SESSION["login-fail"] == "true");
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
