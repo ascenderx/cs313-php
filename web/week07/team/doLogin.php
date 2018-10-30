@@ -33,8 +33,10 @@
         // return true or false depending on success
     })();
 
+    // upon login, send the user to the welcome page
     if ($success) {
         login();
+    // otherwise, send the user back with an error message
     } else {
         loginFail();
     }

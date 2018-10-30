@@ -44,8 +44,10 @@
         // return true or false depending on success
     })();
 
+    // upon registration, redirect the user to the login page
     if ($success) {
-        login();
+        logout();
+    // otherwise, send the user back with an error message
     } else {
         registerFail();
     }
