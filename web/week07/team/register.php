@@ -1,6 +1,6 @@
 <?php
     require("redirects.php");
-    forceSSL();
+    // forceSSL();
 ?>
 <!DOCTYPE html>
 <html lang="en-US">

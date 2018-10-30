@@ -1,6 +1,6 @@
 <?php
     require("redirects.php");
-    forceSSL();
+    // forceSSL();
     checkUserCredentials();
 
     $username = $_SESSION["username"];
