@@ -102,7 +102,7 @@
      */
     function releaseLoginSession() {
         unset($_SESSION["user-key"]);
-        unset($_SESSION["user-name"]);
+        unset($_SESSION["username"]);
     }
 
     /**
