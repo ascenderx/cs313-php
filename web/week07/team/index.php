@@ -17,6 +17,9 @@
         <meta charset="UTF-8" />
     </head>
     <body>
-
+        Welcome, <?=$username ?>!<br />
+        <form method="GET">
+            <input type="submit" formaction="doLogout.php" value="Sign Out" />
+        </form>
     </body>
 </html>

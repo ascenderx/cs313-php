@@ -1,1 +1,4 @@
-<?php logout() ?>
+<?php 
+    require("redirects.php");
+    logout();
+?>
