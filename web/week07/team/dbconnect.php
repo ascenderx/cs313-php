@@ -13,11 +13,7 @@
         $dbPort = $dbOpts["port"];
         $dbUser = $dbOpts["user"];
         $dbPassword = $dbOpts["pass"];
-        $dbName = ltrim($dbOpts["path"],'/');
-
-        if (!isset($dbHost) || !isset($dbPort) || !isset($dbName)) {   
-            require("localinfo.php");
-        }
+        $dbName = "team07";
 
         $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
