@@ -110,8 +110,8 @@
      * This successfully logs the user in to the subsite, redirecting
      * him/her to the welcome page.
      */
-    function login() {
-        createLoginSession();
+    function login($username) {
+        createLoginSession($username);
         header("Location: index.php");
         exit();
     }

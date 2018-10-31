@@ -18,7 +18,7 @@
 
     // check if valid
     $validUsername = isPopulated($username);
-    $validPassowrd = isPopulated($password);
+    $validPassword = isPopulated($password);
     if (!$validUsername || !$validPassword) {
         loginFail();
     }
@@ -28,16 +28,13 @@
     $password = htmlspecialchars($password);
 
     // query the database
-    $success = (function() {
-        // return true or false depending on success
-        try {
-            require("dbconnect.php");
-            // add the db->query code here
-            return true;
-        } catch (PDOException $ex) {
-            return false;
-        }
-    })();
+    try {
+        require("dbconnect.php");
+        // add the db->query code here
+        $success = true;
+    } catch (PDOException $ex) {
+        $success = false;
+    }
 
     // upon login, send the user to the welcome page
     if ($success) {

@@ -16,39 +16,33 @@
     $username = $_POST["username"];
     $password = $_POST["password"];
     $confirm = $_POST["confirm"];
-    $fullname = $_POST["fullname"];
 
     // check if valid
     $PASSWORD_MIN_LENGTH = 8;
-    $PASSWORD_MAX_LENGTH = 64;
+    $PASSWORD_MAX_LENGTH = 124;
     $validUsername = isPopulated($username);
-    $validPassowrd = (
+    $validPassword = (
         isPopulated($password) &&
-        count($password) >= PASSWORD_MIN_LENGTH &&
-        count($password) <= PASSWORD_MAX_LENGTH &&
+        strlen($password) >= $PASSWORD_MIN_LENGTH &&
+        strlen($password) <= $PASSWORD_MAX_LENGTH &&
         $password == $confirm
     );
-    $validFullname = isPopulated($fullname);
-    if (!$validUsername || !$validPassword || !$validFullName) {
+    if (!$validUsername || !$validPassword) {
         registerFail();
     }
 
     // sanitize input
     $username = htmlspecialchars($username);
     $password = htmlspecialchars($password);
-    $fullname = htmlspecialchars($fullname);
 
     // query the database
-    $success = (function() {
-        // return true or false depending on success
-        try {
-            require("dbconnect.php");
-            // add the db->query code here
-            return true;
-        } catch (PDOException $ex) {
-            return false;
-        }
-    })();
+    try {
+        require("dbconnect.php");
+        // add the db->query code here
+        $success = true;
+    } catch (PDOException $ex) {
+        $success = false;
+    }
 
     // upon registration, redirect the user to the login page
     if ($success) {
