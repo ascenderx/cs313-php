@@ -19,7 +19,8 @@ const ROUTES = {
     '/': handlers.home,
     '/home': handlers.home,
     '/getData': handlers.simpleData,
-    '/games': handlers.goGithubIO
+    '/games': handlers.goGithubIO,
+    '/vigenere': handlers.encryptVigenere
 };
 
 /**
