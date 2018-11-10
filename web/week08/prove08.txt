@@ -14,6 +14,7 @@ I added two endpoints:
 1. /games: A redirect-shortcut to my GitHub homepage (ascenderx.github.io)
 2. /vigenere: An endpoint that uses a Vigenère cipher to encrypt and decrypt messages
     -> This endpoint has several possible query parameters, documented in the code's JSDocs
+I also modularized my code using separate node files.
 
 4. Please select the category you feel best describes your assignment:
 A - Some attempt was made
