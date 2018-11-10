@@ -1,0 +1,30 @@
+After completing the assignment, please answer the questions in this text file and submit it to I-Learn.
+
+0. Don't forget to also upload your javascript file to the assignment dropbox in I-Learn.
+
+1. Briefly describe any pieces of the assignment that are not yet working correctly.
+All pieces are working correctly.
+
+2. Briefly describe the "coolest" thing you learned while completing this assignment.
+Working with endpoints was pretty awesome.
+Working with URL query parameters was by far the most interesting.
+
+3. Describe anything you did to go above and beyond with this assignment.
+I added two endpoints:
+1. /games: A redirect-shortcut to my GitHub homepage (ascenderx.github.io)
+2. /vigenere: An endpoint that uses a Vigenère cipher to encrypt and decrypt messages
+    -> This endpoint has several possible query parameters, documented in the code's JSDocs
+
+4. Please select the category you feel best describes your assignment:
+A - Some attempt was made
+B - Developing, but significantly deficient
+C - Slightly deficient, but still mostly adequate
+D - Meets requirements
+E - Shows creativity and excels above and beyond requirements
+<E>
+
+5. Provide a brief justification (1-2 sentences) for selecting that category.
+I went above and beyond (see #3).
+More specifically, I ensured that the query parameters were valid as they were passed into my
+/vigenere endpoint, and an error page was displayed if any parameters were invalid.
+
