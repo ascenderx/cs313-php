@@ -1,0 +1,42 @@
+After completing the assignment, please answer the questions in this text file and submit it to I-Learn.
+
+1. Copy and paste the URL for your web application:
+https://byui-cs313-downerj-week09.herokuapp.com/
+
+2. Copy and paste the URL for your source code repository (e.g., GitHub):
+https://github.com/user0x4A35/byui-cs313-downerj-week09
+
+3. Briefly list and describe the elements of the application that are functioning. Include any special instructions about how to login and/or use your application.
+The full app is functional.
+- The inputs are fillable, and there is a button to either send an HTTP form submission or an AJAX request.
+- The AJAX request updates a separate div with the response HTML.
+- There are options for the /getRate endpoint which are checked and validated.
+- The postage calculation is functional.
+
+4. Briefly describe any pieces of the assignment that are not yet working correctly.
+Nothing appears to be broken or missing.
+
+5. Briefly describe the "coolest" thing you learned while completing this assignment.
+The most interesting thing was learning how easy it is to set up a web server using JavaScript via
+Node.js and Express.
+
+6. In your own words, briefly describe the concept of a callback function and why it is useful.
+Callbacks are functions that whose calls are deferred for a later time, after an asynchronous process
+has finished and needs it. They are primarily useful when performing TCP/IP calls, database queries and
+file I/O as these are the operations that tend to take the longest to complete, and simply waiting for
+them via traditional, procedural logic would hang the app.
+
+7. Please select the category you feel best describes your assignment:
+A - Some attempt was made
+B - Developing, but significantly deficient
+C - Slightly deficient, but still mostly adequate
+D - Meets requirements
+E - Shows creativity and excels above and beyond requirements
+<E>
+
+8. Provide a brief justification (1-2 sentences) for selecting that category.
+- I added an extra (optional) URL parameter for /getRate to display the data as either HTML or JSON.
+- I added an option in my static index.html to either perform a form submission or an AJAX request.
+- I added code to validate the URL parameters for /getRate.
+- I modularized my /getRate code.
+
