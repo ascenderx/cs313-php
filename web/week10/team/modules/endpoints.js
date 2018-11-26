@@ -27,7 +27,7 @@ module.exports = {
     },
 
     getParents: (request, response) => {
-        let client = new Client({ password: '0IA53eR762Ui' });
+        let client = new Client({ password: 'abacus$$$#930' });
         let clientConnect = promisify(client.connect);
         let clientQuery = promisify(client.query);
         let urlQuery = request.query;
@@ -54,7 +54,7 @@ module.exports = {
     },
 
     getChildren: (request, response) => {
-        let client = new Client({ password: '0IA53eR762Ui' });
+        let client = new Client({ password: 'abacus$$$#930' });
         let clientConnect = promisify(client.connect);
         let clientQuery = promisify(client.query);
         let urlQuery = request.query;
