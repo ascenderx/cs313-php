@@ -3,7 +3,7 @@ const { promisify } = require('util');
 
 module.exports = {
     getPerson: (request, response) => {
-        let client = new Client({ password: '0IA53eR762Ui' });
+        let client = new Client({ password: 'abacus$$$#930' });
         let clientConnect = promisify(client.connect);
         let clientQuery = promisify(client.query);
         let urlQuery = request.query;
