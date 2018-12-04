@@ -1,0 +1,32 @@
+After completing the assignment, please answer the questions in this text file and submit it to I-Learn.
+
+1. Project Title / One sentence description:
+MegaMan Battle Network 3 White (GBA) Status Tracker
+
+2. Copy and paste the URL for your web application (if applicable):
+http://byui-cs313-downerj-prj2.herokuapp.com/
+
+3. Copy and paste the URL for your source code repository (e.g., GitHub):
+https://github.com/user0x4a35/byui-cs313-downerj-prj2.git
+
+4. Describe the functionality that is currently working, along with any special instructions of how to use your web application:
+- The /viewchips.html page shows the list of (standard) chips in the database, joined with the matching codes.
+
+5. Describe the features that are not yet working correctly.
+- The /viewstats.html page, which will show and allow modification of the player's stats as well as his/her personal chip list
+- The /account.html page, which will show the player's account info
+- The overall CSS
+
+6. Please select the category you feel best describes your assignment:
+A - Some attempt was made
+B - Developing, but significantly deficient
+C - Slightly deficient, but still mostly adequate
+D - Meets requirements
+E - Shows creativity and excels above and beyond requirements
+<B>
+
+7. Provide a brief justification (1-2 sentences) for selecting that category.
+Only one endpoint is functioning, and even then the CSS is unimplemented
+
+8. Please list any questions you have for the instructor regarding this assignment or this week's topic.
+
